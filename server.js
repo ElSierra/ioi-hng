@@ -23,4 +23,7 @@ app.get("/api", (req, res) => {
   });
 });
 
-app.listen(port, console.log(`Server Started at Port ${port}`));
+app.listen(
+  process.env.PORT || port,
+  console.log(`Server Started at Port ${process.env.PORT || port}`)
+);
