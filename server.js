@@ -10,12 +10,7 @@ const app = express();
 const port = 8080;
 const slackUsername = "hojoisaac";
 
-app.use(
-  cors({
-    origin: ["http://localhost:8080"],
-    methods: "GET,POST,PUT,DELETE,OPTIONS",
-  })
-);
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
