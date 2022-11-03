@@ -55,7 +55,7 @@ app.post("/api", (req, res) => {
 
       res.send({
         slackUsername: "hojoisaac",
-        results: result.results,
+        result: result.results,
         operation_type: result.operation_type,
       });
     });
