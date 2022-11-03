@@ -8,12 +8,12 @@ let operation = async (operation_type) => {
     ner: { useDuckling: false },
   });
   const result = await manager.process(operation_type);
-
-  [first, second] = result.sourceEntities;
+  
+  let [first, second] = result.sourceEntities;
 
   let x;
   let y;
-  //! Searches for keywords in the statement passed
+//! Searches for keywords in the statement passed
   if (operation_type.match("add")) {
     operator = "addition";
   } else if (operation_type.match("mul")) {
