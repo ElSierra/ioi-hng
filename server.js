@@ -13,7 +13,7 @@ const slackUsername = "hojoisaac";
 app.use(cors());
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+//app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/api", (req, res) => {
   res.send({
@@ -30,6 +30,7 @@ app.listen(
 );
 
 app.post("/api", (req, res) => {
+  console.log(req.body);
   const operation_input = req.body.operation_type;
   const x = Number(req.body.x);
   const y = Number(req.body.y);
@@ -59,5 +60,5 @@ app.post("/api", (req, res) => {
         operation_type: result.operation_type,
       });
     });
-  }
+  } 
 });
