@@ -56,11 +56,14 @@ app.post("/api", (req, res) => {
       let result = performOperation(operator, Number(number1), Number(number2));
      // console.log(result);
 
-      res.send({
+   const response = {
         slackUsername: "hojoisaac",
         result: result.results,
         operation_type: result.operation_type,
-      });
+      }
+
+      const jsonContent = JSON.stringify(response);
+      res.end(jsonContent);
     });
   }  
 });

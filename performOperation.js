@@ -26,7 +26,7 @@ function performOperation(operation_type, x, y) {
 
       break;
   }
-  return { results: results, operation_type: operation_key };
+  return { results: results, operation_type: operation_type };
 }
 
 module.exports = performOperation;
