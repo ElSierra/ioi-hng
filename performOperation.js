@@ -3,8 +3,14 @@ function performOperation(operation_type, x, y) {
   const operation = {
     ADD: "addition",
     SUBTRACT: "subtraction",
-    MULTIPLACTION: "multiplication",
+    MULTIPLICATION: "multiplication",
   };
+  //Get key of operation
+    const operation_key = Object.keys(operation).find(
+        (key) => operation[key] === operation_type
+        );
+        console.log(operation_key);
+
   switch (operation_type) {
     case operation.ADD:
       results = x + y;
@@ -12,7 +18,7 @@ function performOperation(operation_type, x, y) {
     case operation.SUBTRACT:
       results = x - y;
       break;
-    case operation.MULTIPLACTION:
+    case operation.MULTIPLICATION:
       results = x * y;
       break;
     default:
@@ -20,7 +26,7 @@ function performOperation(operation_type, x, y) {
 
       break;
   }
-  return { results: results, operation_type: operation_type };
+  return { results: results, operation_type: operation_key };
 }
 
 module.exports = performOperation;
