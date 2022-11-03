@@ -34,36 +34,37 @@ app.post("/api", (req, res) => {
   const operation_input = req.body.operation_type;
   const x = Number(req.body.x);
   const y = Number(req.body.y);
- console.log(operation_input.value);
-   if (
-    
+  console.log(operation_input.value);
+  if (
     operation_input.value === "addition" ||
     operation_input.value === "subtraction" ||
     operation_input.value === "multiplication"
   ) {
     console.log(true);
     let result = performOperation(operation_input.value, x, y);
-
-    res.send({
-      slackUsername: "hojoisaac",
-      results: result.results,
+    const response = {
+      slackUsername: slackUsername,
+      result: result.results,
       operation_type: result.operation_type,
-    });
+    };
+
+    const jsonContent = JSON.stringify(response);
+    res.end(jsonContent);
   } else {
     nlp(operation_input.value).then((results) => {
       ({ number1, number2, operator } = results);
       console.log(results);
       let result = performOperation(operator, Number(number1), Number(number2));
-     // console.log(result);
+      // console.log(result);
 
-   const response = {
-        slackUsername: "hojoisaac",
+      const response = {
+        slackUsername: slackUsername,
         result: result.results,
         operation_type: result.operation_type,
-      }
+      };
 
       const jsonContent = JSON.stringify(response);
       res.end(jsonContent);
     });
-  }  
+  }
 });
