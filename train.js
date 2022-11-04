@@ -34,6 +34,10 @@ manager.addDocument("en", "can the you times", "operation.mul");
 manager.addDocument("en", "times the following", "operation.mul");
 manager.addDocument("en", "times of the numbers", "operation.mul");
 manager.addDocument("en", "times x and y", "operation.mul");
+manager.addDocument("en", "product of x and y", "operation.mul");
+manager.addDocument("en", "waht is the product", "operation.mul");
+manager.addDocument("en", "what is the product of", "operation.mul");
+manager.addDocument("en", "the product of ", "operation.mul");
 
 
 
